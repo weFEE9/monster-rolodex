@@ -7,17 +7,15 @@ type MyProps = {
   onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-class SearchBox extends React.Component<MyProps> {
-  render(): React.ReactNode {
-    return (
-      <input
-        className={`search-box ${this.props.className}`}
-        type='search'
-        placeholder={this.props.placeholder}
-        onChange={this.props.onChangeHandler}
-      />
-    );
-  }
-}
+const SearchBox = ({ className, placeholder, onChangeHandler }: MyProps) => {
+  return (
+    <input
+      type='search'
+      className={`search-box ${className}`}
+      placeholder={placeholder}
+      onChange={onChangeHandler}
+    />
+  );
+};
 
 export default SearchBox;

@@ -13,24 +13,21 @@ type Monster = {
   email: string;
 };
 
-class CardList extends React.Component<MyProps> {
-  render(): React.ReactNode {
-    const { monsters } = this.props;
-
-    return (
-      <div className='card-list'>
-        {monsters.map((monster) => {
-          return (
-            <Card
-              className='card-container'
-              monster={monster}
-              src={`https://robohash.org/${monster.id}?set=set2&size=180x180`}
-            />
-          );
-        })}
-      </div>
-    );
-  }
-}
+const CardList = ({ monsters }: MyProps) => {
+  return (
+    <div className='card-list'>
+      {monsters.map((monster) => {
+        return (
+          <Card
+            key={monster.id}
+            className='card-container'
+            monster={monster}
+            src={`https://robohash.org/${monster.id}?set=set2&size=180x180`}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 export default CardList;

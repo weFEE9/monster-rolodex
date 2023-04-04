@@ -14,19 +14,15 @@ type Monster = {
   username: string;
 };
 
-class Card extends React.Component<MyProps> {
-  render(): React.ReactNode {
-    const { className, src } = this.props;
-    const { id, email, name } = this.props.monster;
-
-    return (
-      <div className={`card-container ${className}`} key={id}>
-        <img src={src} alt={name} />
-        <h2>{name}</h2>
-        <p>{email}</p>
-      </div>
-    );
-  }
-}
+const Card = ({ className, monster, src }: MyProps) => {
+  const { email, name } = monster;
+  return (
+    <div className='card-container'>
+      <img src={src} alt={name} />
+      <h2>{name}</h2>
+      <p>{email}</p>
+    </div>
+  );
+};
 
 export default Card;
